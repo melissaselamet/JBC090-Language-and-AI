@@ -33,11 +33,13 @@ prob_sums["auhtor_ID"] = prob_sums["auhtor_ID"].astype(pd.StringDtype())
 N_original["auhtor_ID"] = N_original["auhtor_ID"].astype(pd.StringDtype())
 
 # Merges the author IDs and their corresponding labels with the Groupby object
-df_final1 = prob_sums.merge(N_original[["auhtor_ID", "leaning_translated"]], how='inner', on="auhtor_ID").drop_duplicates()
+df_final1 = prob_sums.merge(N_original[["auhtor_ID", "leaning_translated"]], how='inner', on="auhtor_ID")
 
 # Calculates and prints the accuracy of the model
 accuracy = len(df_final1[df_final1["prediction"] == df_final1["leaning_translated"]]) / len(df_final1)
 print(accuracy)
+
+df_final1 = df_final1.drop_duplicates()
 
 # Prints a confusion matrix
 def confusion_matrix1(prediction, actual):
@@ -81,11 +83,13 @@ prob_sums["auhtor_ID"] = prob_sums["auhtor_ID"].astype(pd.StringDtype())
 E_original["auhtor_ID"] = E_original["auhtor_ID"].astype(pd.StringDtype())
 
 # Merges the author IDs and their corresponding labels with the Groupby object
-df_final2 = prob_sums.merge(E_original[["auhtor_ID", "leaning_translated"]], how='inner', on="auhtor_ID").drop_duplicates()
+df_final2 = prob_sums.merge(E_original[["auhtor_ID", "leaning_translated"]], how='inner', on="auhtor_ID")
 
 # Calculates and prints the accuracy of the model
 accuracy = len(df_final2[df_final2["prediction"] == df_final2["leaning_translated"]]) / len(df_final2)
 print(accuracy)
+
+df_final2 = df_final2.drop_duplicates()
 
 # Prints a confusion matrix
 def confusion_matrix2(prediction, actual):
@@ -127,11 +131,13 @@ prob_sums["auhtor_ID"] = prob_sums["auhtor_ID"].astype(pd.StringDtype())
 E_cleaned["auhtor_ID"] = E_cleaned["auhtor_ID"].astype(pd.StringDtype())
 
 # Merges the author IDs and their corresponding labels with the Groupby object
-df_final3 = prob_sums.merge(E_cleaned[["auhtor_ID", "leaning_translated"]], how='inner', on="auhtor_ID").drop_duplicates()
+df_final3 = prob_sums.merge(E_cleaned[["auhtor_ID", "leaning_translated"]], how='inner', on="auhtor_ID")
 
 # Calculates and prints the accuracy of the model
 accuracy = len(df_final3[df_final3["prediction"] == df_final3["leaning_translated"]]) / len(df_final3)
 print(accuracy)
+
+df_final3 = df_final3.drop_duplicates()
 
 # Prints a confusion matrix
 def confusion_matrix3(prediction, actual):
